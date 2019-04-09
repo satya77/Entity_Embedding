@@ -49,8 +49,6 @@ class Settings:
                                                  "NUM_NEGATIVE_SAMPLES")  # number of negative examples to be considered in case of word2vec
         self.WINDOW_SIZE = program_config.getint("Model",
                                             "WINDOW_SIZE")  # window size to the left and right of center word for trainig word2vec and glove
-        self.PLOT_ERROR = program_config.getboolean("Model",
-                                               "PLOT_ERROR")  # if set to true during training a plot of the cost function will be drawn
         self.MAX_WEIGHT_CAP = program_config.getint("Model",
                                                     "MAX_WEIGHT_CAP")  # maximum weight of the load netowrk, anything bigger than this will be caped to 1.0
         self.POWER_SCALING = program_config.getfloat("Model",
@@ -63,10 +61,6 @@ class Settings:
                                                   "NUM_WALKS")  # number of random walks in the deep walk based model
         self.LENGHT_WALK = program_config.getint("Model",
                                                   "LENGHT_WALK")  # lenght of random walks in the deep walk based model
-        self.PPR_ALPHA = program_config.getfloat("Model",
-                                                 "PPR_ALPHA")  # alpha for Personalized Page Rank in the verse model
-        self.NUM_HIDDEN = program_config.getint("Model",
-                                                 "NUM_HIDDEN")  # number of hidden layers in the verse model
         self.PROXIMATY = program_config.get("Model",
                                                  "PROXIMATY")
         #the proximity for verse method takes three value : "PPR", "SimRank" and "Adjacency"
