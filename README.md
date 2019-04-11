@@ -76,8 +76,6 @@ The word2vec model uses the `gensim` package and the GloVe model uses the `glove
 The code for the verse model can be obtained from [VERSE](https://github.com/xgfs/verse) and the original DeepWalk implementation is available in [DeepWalk](https://github.com/phanein/deepwalk), for our model we modified the code to meet our needs.
 
 A full list of required python packages is provided in the `requirements.txt` file.
-
-To install the requirements for pip run:
 ```
 # Using pip
 pip install -r requirements.txt
