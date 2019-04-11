@@ -1,21 +1,28 @@
 # Word Embeddings for Entity-annotated Texts
 
-This repository provides a reference implementation of the paper " Word Embeddings for Entity-annotated Texts " as well as links to the data.
+This repository provides a reference implementation of the paper "Word Embeddings for Entity-annotated Texts" as well as links to the data.
+
+A long-standing challenge for research in computer science is the understanding of written text and extraction of useful information from it. These distributed representations or so-called word embeddings, map words of a vocabulary to a dense vector, such that words with closer meanings are mapped to the nearby points and the similarity between them is computed based on their distance in the embedding space. Traditional word embeddings, despite being good at capturing semantics, have some drawbacks. They treat all words equally as terms and cannot be directly used to represent named entities. Disregarding the named entities while generating a word embeddings creates several challenges for downstream tasks that use them as input.
+ In this work, we address the problems of term-based models by generating embeddings for named entities as well as terms using an annotated corpus using two approaches: 
+
+ To naively include entities in our models, we train the well-established word embedding models on a corpus, annotated with named entities. 
+ To better capture the entity-entity relations, we take advantage of the graph representation of the corpus, and embed the nodes of co-occurrence graphs extracted from the annotated text. 
+To enhance the performance of our models, we try a wide range of word and graph embedding techniques and compare them against word embedding models trained on raw text.
 
 ## Datasets
 
 ### Training corpus 
 For training, we use 209, 023 news articles from English-speaking news outlets,
-collected from June to November 2016 by Spitz and Gertz [link](https://dbs.ifi.uni-heidelberg.de/files/Team/aspitz/publications/Spitz_Gertz_2018_Entity-centric_Topic_Extraction.pdf). For entity embeddings we annotated the corpus using [ Ambiverse](https://github.com/ambiverse-nlu). Although the full dataset is not available in this repository, we provided a small example corpus in "test_corpus" folder. The "corpus_raw.txt" file the first 100 line of our raw corpus, containing the news articles without the annotation. The annotated version can be found under "corpus_annotated.txt" in the same folder, where each line is pre-processed and entities are replaced with their unique identifier as described in the paper. 
+collected from June to November 2016 by [Spitz and Gertz](https://dbs.ifi.uni-heidelberg.de/files/Team/aspitz/publications/Spitz_Gertz_2018_Entity-centric_Topic_Extraction.pdf). For entity embeddings we annotated the corpus using [ Ambiverse](https://github.com/ambiverse-nlu). Although the full dataset is not available in this repository, we provided a small example corpus in "test_corpus" folder. The "corpus_raw.txt" file the first 100 line of our raw corpus, containing the news articles without the annotation. The annotated version can be found under "corpus_annotated.txt" in the same folder, where each line is pre-processed and entities are replaced with their unique identifier as described in the paper. 
 
 ### Graph 
-For the graph-based methods the LOAD network was extracted from the same corpus, the edge list can be found in [Link](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/). The "node_list.txt" file contains the label for each node along with the unique identifier. "edge_list_raw.txt" contains the edge list where each node is the unique identifier from the LOAD network. Since embeddings need an index file that maps the words to their row in the embedding matrix, we created a second edge list with the indexes as nodes in "edge_list.txt".
+For the graph-based methods the LOAD network was extracted from the same corpus, the edge list can be found [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/). The "node_list.txt" file contains the label for each node along with the unique identifier. "edge_list_raw.txt" contains the edge list where each node is the unique identifier from the LOAD network. Since embeddings need an index file that maps the words to their row in the embedding matrix, we created a second edge list with the indexes as nodes in "edge_list.txt".
 
 ### Test data
 The relevant test dataset for the tasks of Word Similarity, Analogy and Clustering can be found under the "test_data" folder There exist two versions of each dataset, one which is the original version and the second one which was tailored to be used by the models. Specifically, the words that do not exist in our corpus were removed and the unique identifier for each word was added. 
 
 ## Pre-trained Models
-The results presented in the paper are the average result between 10 embedding model trained using the same hyperparameters on the test datasets. We provide one pre-trained model per method here [Link](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/), for the exact replication of the results in the paper however, all 10 models are required. 
+The results presented in the paper are the average result between 10 embedding model trained using the same hyperparameters on the test datasets. We provide one pre-trained model per method [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/), for the exact replication of the results in the paper however, all 10 models are required. 
 
 ## Setting File 
 
