@@ -1,6 +1,6 @@
 # Word Embeddings for Entity-annotated Texts
 
-This repository provides a reference implementation of the paper "Word Embeddings for Entity-annotated Texts" as well as links to the data.
+This repository provides a reference implementation of the paper [Word Embeddings for Entity-annotated Texts](https://arxiv.org/pdf/1902.02078.pdf) as well as links to the data.
 
 A long-standing challenge for research in computer science is the understanding of written text and extraction of useful information from it. These distributed representations or so-called word embeddings, map words of a vocabulary to a dense vector, such that words with closer meanings are mapped to the nearby points and the similarity between them is computed based on their distance in the embedding space. Traditional word embeddings, despite being good at capturing semantics, have some drawbacks. They treat all words equally as terms and cannot be directly used to represent named entities. Disregarding the named entities while generating a word embeddings creates several challenges for downstream tasks that use them as input.
 In this work, we address the problems of term-based models by generating embeddings for named entities as well as terms using an annotated corpus using two approaches: 
