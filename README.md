@@ -70,6 +70,65 @@ python main.py
 To train the verse model on the data, please refer to their GitHub repository [VERSE](https://github.com/xgfs/verse) and use the C++ code to train the model using the edge list of a co-occurrence network. To evaluate their model using our code, use the convertor.py in the verse package to convert the embeddings into numpy. Rename the embedding to 'emb.bin' and place them along with the dictionary 'dicts.pickle' in a folder. 
 The folder path should be given as `'SAVE_FOLDERPATH'` in the settings file. 
 
+### Training example 
+For the training procedure, we consider the case of training the word2vec model on the annotated test corpus, with 100 dimensions, 16 negative samples, the learning rate of 0.0015 and window size of 10 for 100 epochs. For this purpose the settings.ini file should be edited as follows: 
+- `MODE`: Train
+- `SAVE_FOLDERPATH`: The path to a folder to save the current model files (e.g., `resources/model/word2vec`) 
+- `EMBEDDING_TYPE`: Word2Vec
+- `CORPUS_PATH`: `resources/test_corpus/corpus_annotated.txt`
+- `EMBEDDING_SIZE`: 100
+- `MODEL_NUMBER`: 1 (just to distinguish it from the models with the same parameters)
+- `NUM_EPOCH`: 100 
+- `LEARNING_RATE`: 0.015
+- `NUM_NEGATIVE_SAMPLES`: 16
+- `WINDOW_SIZE`: 10
+- `MIN_COUNT`: 3
+- `NUM_THREAD`: 5
+ 
+ For training a graph-based model we look the example of DeepWalk as the VERSE model has to be trained based on the description on its own package. For DeepWalk model with 100 random walks of length 4 trained for 100 epochs with the log of the weights used for the transition probabilities, with word2vec parameters same as above, we need to change the settings.ini file as follow: 
+- `MODE`: Tarin
+- `SAVE_FOLDERPATH`: The path to a folder to save the current model files (e.g., resources/deepwalk) 
+- `EDGELIST_PATH`: Path to the file for the edge list of a co-occurrence network (e.g., `resources/load_network/edge_list.txt`)
+- `NODELIST_PATH`: Path to the file for the node list of a co-occurrence network (e.g., `resources/load_network/node_list.txt`)
+- `EMBEDDING_TYPE`: DeepWalk
+- `EMBEDDING_SIZE`: 100
+- `MODEL_NUMBER`: 1
+- `NUM_EPOCH`: 100
+- `LEARNING_RATE`: 0.0015
+- `PROXIMATY`: log
+- `NUM_NEGATIVE_SAMPLES`: 16
+- `WINDOW_SIZE`: 10
+- `MIN_COUNT`: 3
+- `NUM_THREAD`: 5
+- `NUM_WALKS`: 4
+- `LENGTH_WALK`: 100
+
+### Testing example 
+To test the modesl we use the example from our pre-trained word2vec model. Assuming that the pre-trained models are loacated in the  `resources/pretrained_embeddings/Word2Vec`, and the test data is located in `resources/test_data`, we can change the setting file to test for word similiarity on `wordsimiliarity353` corpus as follows:
+- `MODE`: Test
+- `SAVE_FOLDERPATH`: `resources/pretrained_embeddings/Word2Vec`
+- `EMBEDDING_TYPE`: Word2Vec
+- `TEST_DATA_PATH`: `resources/test_data/similarity_relatedness/wordsimilarity353_with_ids.csv`
+- `TEST_MODE`: WordSimilarity
+- `TEST_ON_RAW_TEXT`: FALSE (if the model is trained on the raw corpus this should be TRUE)
+- `EMBEDDING_SIZE`: 100
+- `MODEL_NUMBER`: 1
+- `NUM_EPOCH`: 100
+- `LEARNING_RATE`: 0.015
+- `NUM_NEGATIVE_SAMPLES`: 16
+- `WINDOW_SIZE`: 10
+- `MIN_COUNT`: 3
+- `NUM_THREAD`: 5
+
+To test a model trained with the VERSE package, the model data should be placed in a specific folder. As an example, we present the setting file to test for analogies on the VERSE pretrained model using the typed search, described in the paper: 
+
+- `MODE`: Test
+- `SAVE_FOLDERPATH`: `resources/pretrained_embeddings/VERSE/VERSE_dim=100_lr=0025_Prox=Adjacency_neg=16_iters=50000_PPR_alpha=085_num=1`
+- `EMBEDDING_TYPE`: VERSE
+- `TEST_DATA_PATH`: `resources/test_data/analogy/Mikolov_2013_with_ids_new.csv`
+- `TEST_MODE`: Analogy
+- `ENITY_CENTRIC_TEST`: TRUE 
+
 ## Required packages  
 
 The word2vec model uses the `gensim` package and the GloVe model uses the `glove-python` package. 
