@@ -71,9 +71,6 @@ class Analogy(Test):
                         self.num_total=self.num_total+1
                 print("Accuracy for type {}:{} , {} out of {} were correct. and {} wrong.".format(t, float(
                     correct) / total_type, correct,total_type, wrong))
-        print(self.num_total)
-        print(len(self.correct_list))
-        print(len(self.wrong_list))
         acc=float(len(self.correct_list))/self.num_total
         print("Accuracy :{} , {} out of {} were correct. and {} wrong.".format(acc,len(self.correct_list),self.num_total,len(self.wrong_list)))
         return acc
