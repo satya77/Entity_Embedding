@@ -59,8 +59,8 @@ class Settings:
                                                      "NUM_THREAD")  # number of threads for the models that support multi-threading
         self.NUM_WALKS = program_config.getint("Model",
                                                   "NUM_WALKS")  # number of random walks in the deep walk based model
-        self.LENGHT_WALK = program_config.getint("Model",
-                                                  "LENGHT_WALK")  # lenght of random walks in the deep walk based model
+        self.LENGTH_WALK = program_config.getint("Model",
+                                                  "LENGTH_WALK")  # length of random walks in the deep walk based model
         self.PROXIMATY = program_config.get("Model",
                                                  "PROXIMATY")
         #the proximity for verse method takes three value : "PPR", "SimRank" and "Adjacency"

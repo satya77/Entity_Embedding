@@ -50,7 +50,7 @@ if setting.MODE=="Train":
         model = DeepWalk(vector_size=setting.EMBEDDING_SIZE, node_list_path=setting.NODELIST_PATH,edge_list_path=setting.EDGELIST_PATH,
                      learning_rate=setting.LEARNING_RATE, iterations=setting.NUM_EPOCH,
                      negative=setting.NUM_NEGATIVE_SAMPLES, window_size=setting.WINDOW_SIZE,
-                      worker=setting.NUM_THREAD,num_walks=setting.NUM_WALKS, length_walk=setting.LENGHT_WALK,min_count=setting.MIN_COUNT,proximity=setting.PROXIMATY,model_number=setting.MODEL_NUMBER)
+                      worker=setting.NUM_THREAD,num_walks=setting.NUM_WALKS, length_walk=setting.LENGTH_WALK,min_count=setting.MIN_COUNT,proximity=setting.PROXIMATY,model_number=setting.MODEL_NUMBER)
         model.train()
     # ----------------------------------VERSE model----------------------------------
     elif setting.EMBEDDING_TYPE == "VERSE":
@@ -77,7 +77,7 @@ elif setting.MODE=="Test":
             model = DeepWalk(vector_size=setting.EMBEDDING_SIZE, node_list_path=setting.NODELIST_PATH,edge_list_path=setting.EDGELIST_PATH,
                      learning_rate=setting.LEARNING_RATE,
                      negative=setting.NUM_NEGATIVE_SAMPLES, window_size=setting.WINDOW_SIZE,
-                      worker=setting.NUM_THREAD,num_walks=setting.NUM_WALKS, iterations=setting.NUM_EPOCH, length_walk=setting.LENGHT_WALK,min_count=setting.MIN_COUNT,proximity=setting.PROXIMATY,model_number=setting.MODEL_NUMBER)
+                      worker=setting.NUM_THREAD,num_walks=setting.NUM_WALKS, iterations=setting.NUM_EPOCH, length_walk=setting.LENGTH_WALK,min_count=setting.MIN_COUNT,proximity=setting.PROXIMATY,model_number=setting.MODEL_NUMBER)
         model.read_from_file(setting.SAVE_FOLDERPATH)
 
     elif setting.EMBEDDING_TYPE == "VERSE":
@@ -126,7 +126,7 @@ elif setting.MODE == "Batch_Test":
                                  learning_rate=setting.LEARNING_RATE,
                                  negative=setting.NUM_NEGATIVE_SAMPLES, window_size=setting.WINDOW_SIZE,
                                  worker=setting.NUM_THREAD, num_walks=setting.NUM_WALKS, iterations=setting.NUM_EPOCH,
-                                 length_walk=setting.LENGHT_WALK, min_count=setting.MIN_COUNT,
+                                 length_walk=setting.LENGTH_WALK, min_count=setting.MIN_COUNT,
                                  proximity=setting.PROXIMATY,model_number=num)
             model.read_from_file(setting.SAVE_FOLDERPATH)
         elif setting.EMBEDDING_TYPE == "VERSE":
