@@ -92,7 +92,7 @@ If you use the code or the datasets, please consider citing the paper:
   author    = {Satya Almasian and
                Andreas Spitz and
                Michael Gertz},
-  title     = {Word Embeddings for Entity-Annotated Texts},
+  title     = {Word Embeddings for Entity-annotated Texts},
   booktitle = {Advances in Information Retrieval - 41st European Conference on {IR}
                Research, {ECIR} 2019, Cologne, Germany, April 14-18, 2019, Proceedings,
                Part {I}},
