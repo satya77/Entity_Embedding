@@ -1,6 +1,6 @@
 # Word Embeddings for Entity-annotated Texts
 
-This repository provides a reference implementation of the paper "Word Embeddings for Entity-annotated Texts" as well as links to the data.
+This repository provides a reference implementation of the paper [Word Embeddings for Entity-annotated Texts](https://arxiv.org/pdf/1902.02078.pdf) as well as links to the data.
 
 A long-standing challenge for research in computer science is the understanding of written text and extraction of useful information from it. These distributed representations or so-called word embeddings, map words of a vocabulary to a dense vector, such that words with closer meanings are mapped to the nearby points and the similarity between them is computed based on their distance in the embedding space. Traditional word embeddings, despite being good at capturing semantics, have some drawbacks. They treat all words equally as terms and cannot be directly used to represent named entities. Disregarding the named entities while generating a word embeddings creates several challenges for downstream tasks that use them as input.
 In this work, we address the problems of term-based models by generating embeddings for named entities as well as terms using an annotated corpus using two approaches: 
@@ -28,8 +28,8 @@ The results presented in the paper are the average result between 10 embedding m
 
 To train your own models or run test the setting file should be edited. Below there is a description of each field and its role: 
 
-- `MODE`: (Train/Test/Batch_Test) Shows the current mode of the program could be "Train" to train the models,"Test" tests the model, "Batch_Test" is when multiple models with the same parameters have been trained the average test result is required, all the models should be in the same folder and the folder path should be given as 'SAVE_FOLDERPATH' 
-- `SAVE_FOLDERPATH`: The path to a folder to save the current model files or to read the model in Test mode 
+- `MODE` (Train/Test/Batch_Test) Shows the current mode of the program could be "Train" to train the models,"Test" tests the model, "Batch_Test" is when multiple models with the same parameters have been trained the average test result is required, all the models should be in the same folder and the folder path should be given as 'SAVE_FOLDERPATH' 
+- `SAVE_FOLDERPATH` The path to a folder to save the current model files or to read the model in Test mode 
 - `EDGELIST_PATH`: Path to the file for the edge list of a co-occurrence network 
 - `NODELIST_PATH`: Path to the file for the node list of a co-occurrence network 
 - `EMBEDDING_TYPE`: (GloVe/Word2Vec/DeepWalk/VERSE) The type of the embedding to be trained or tested "GloVe", "Word2Vec", "DeepWalk", "VERSE"
@@ -71,10 +71,19 @@ To train the verse model on the data, please refer to their GitHub repository [V
 
 ## Required packages  
 
-The word2vec model uses the gensim package and the GloVe model uses the glove_python package. 
+The word2vec model uses the `gensim` package and the GloVe model uses the `glove-python` package. 
 The code for the verse model can be obtained from [VERSE](https://github.com/xgfs/verse) and the original DeepWalk implementation is available in [DeepWalk](https://github.com/phanein/deepwalk), for our model we modified the code to meet our needs.
 
 A full list of required python packages is provided in the `requirements.txt` file.
+
+To install the requirements for pip run:
+```
+# Using pip
+pip install -r requirements.txt
+
+# Using conda
+conda install --file requirements.txt
+```
 
 
 ## Citation 
