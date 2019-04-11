@@ -1,6 +1,6 @@
 # Word Embeddings for Entity-annotated Texts
 
-This repository provides a reference implementation of the paper [Word Embeddings for Entity-annotated Texts](https://arxiv.org/pdf/1902.02078.pdf) as well as links to the data.
+This repository provides a reference implementation of the paper [*Word Embeddings for Entity-annotated Texts*](https://arxiv.org/pdf/1902.02078.pdf) as well as links to the data.
 
 A long-standing challenge for research in computer science is the understanding of written text and extraction of useful information from it. These distributed representations or so-called word embeddings, map words of a vocabulary to a dense vector, such that words with closer meanings are mapped to the nearby points and the similarity between them is computed based on their distance in the embedding space. Traditional word embeddings, despite being good at capturing semantics, have some drawbacks. They treat all words equally as terms and cannot be directly used to represent named entities. Disregarding the named entities while generating a word embeddings creates several challenges for downstream tasks that use them as input.
 In this work, we address the problems of term-based models by generating embeddings for named entities as well as terms using an annotated corpus using two approaches: 
@@ -67,7 +67,8 @@ After changing the settings file, run the following command:
 python main.py 
 ```
 
-To train the verse model on the data, please refer to their GitHub repository [VERSE](https://github.com/xgfs/verse) and use the C++ code to train the model using the edge list of a co-occurrence network. To evaluate their model using our code, use the convertor.py in the verse package to convert the embeddings into numpy. Rename the embedding to 'emb.bin' and place them along with the dictionary 'dicts.pickle' in a folder. The folder path should be given as 'SAVE_FOLDERPATH' in the settings file. 
+To train the verse model on the data, please refer to their GitHub repository [VERSE](https://github.com/xgfs/verse) and use the C++ code to train the model using the edge list of a co-occurrence network. To evaluate their model using our code, use the convertor.py in the verse package to convert the embeddings into numpy. Rename the embedding to 'emb.bin' and place them along with the dictionary 'dicts.pickle' in a folder. 
+The folder path should be given as `'SAVE_FOLDERPATH'` in the settings file. 
 
 ## Required packages  
 
