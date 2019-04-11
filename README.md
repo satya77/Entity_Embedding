@@ -24,12 +24,12 @@ The relevant test dataset for the tasks of Word Similarity, Analogy and Clusteri
 ## Pre-trained Models
 The results presented in the paper are the average result between 10 embedding model trained using the same hyperparameters on the test datasets. We provide one pre-trained model per method [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/), for the exact replication of the results in the paper however, all 10 models are required. 
 
-## Setting File 
+## Settings File 
 
-To train your own models or run test the setting file should be edited. Below there is a description of each field and its role: 
+To train your own models or run test the settings file should be edited. Below there is a description of each field and its role: 
 
-- `MODE` (Train/Test/Batch_Test) Shows the current mode of the program could be "Train" to train the models,"Test" tests the model, "Batch_Test" is when multiple models with the same parameters have been trained the average test result is required, all the models should be in the same folder and the folder path should be given as 'SAVE_FOLDERPATH' 
-- `SAVE_FOLDERPATH` The path to a folder to save the current model files or to read the model in Test mode 
+- `MODE`: (Train/Test/Batch_Test) Shows the current mode of the program could be "Train" to train the models,"Test" tests the model, "Batch_Test" is when multiple models with the same parameters have been trained the average test result is required, all the models should be in the same folder and the folder path should be given as 'SAVE_FOLDERPATH' 
+- `SAVE_FOLDERPATH`: The path to a folder to save the current model files or to read the model in Test mode 
 - `EDGELIST_PATH`: Path to the file for the edge list of a co-occurrence network 
 - `NODELIST_PATH`: Path to the file for the node list of a co-occurrence network 
 - `EMBEDDING_TYPE`: (GloVe/Word2Vec/DeepWalk/VERSE) The type of the embedding to be trained or tested "GloVe", "Word2Vec", "DeepWalk", "VERSE"
@@ -57,17 +57,17 @@ To train your own models or run test the setting file should be edited. Below th
 - `LENGTH_WALK`: Length of random walks in the deep walk based model
 
 
-An example setting file can be found in 'setting/settings.ini'
+An example settings file can be found in 'settings/settings.ini'
 
 ## Usage 
 
-After changing the setting file, run the following command: 
+After changing the settings file, run the following command: 
 
 ```
 python main.py 
 ```
 
-To train the verse model on the data, please refer to their GitHub repository [VERSE](https://github.com/xgfs/verse) and use the C++ code to train the model using the edge list of a co-occurrence network. To evaluate their model using our code, use the convertor.py in the verse package to convert the embeddings into numpy. Rename the embedding to 'emb.bin' and place them along with the dictionary 'dicts.pickle' in a folder. The folder path should be given as 'SAVE_FOLDERPATH' in the setting file. 
+To train the verse model on the data, please refer to their GitHub repository [VERSE](https://github.com/xgfs/verse) and use the C++ code to train the model using the edge list of a co-occurrence network. To evaluate their model using our code, use the convertor.py in the verse package to convert the embeddings into numpy. Rename the embedding to 'emb.bin' and place them along with the dictionary 'dicts.pickle' in a folder. The folder path should be given as 'SAVE_FOLDERPATH' in the settings file. 
 
 ## Required packages  
 
