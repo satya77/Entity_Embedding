@@ -61,7 +61,7 @@ class Settings:
                                                   "NUM_WALKS")  # number of random walks in the deep walk based model
         self.LENGTH_WALK = program_config.getint("Model",
                                                   "LENGTH_WALK")  # length of random walks in the deep walk based model
-        self.PROXIMATY = program_config.get("Model",
-                                                 "PROXIMATY")
+        self.PROXIMITY = program_config.get("Model",
+                                                 "PROXIMITY")
         #the proximity for verse method takes three value : "PPR", "SimRank" and "Adjacency"
         # for the DeepWalk it defines which function of the edge weights to use and can take values "Plain"-> no change to weights, "log"-> log(weight+1) and "sqrt"-> sqrt(weight)

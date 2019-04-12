@@ -2,11 +2,11 @@
 
 This repository provides a reference implementation of the paper [*Word Embeddings for Entity-annotated Texts*](https://arxiv.org/pdf/1902.02078.pdf), which was published as an ECIR conference paper. 
 
-A long-standing challenge for research in computer science is the understanding of written text and extraction of useful information from it. These distributed representations or so-called word embeddings, map words of a vocabulary to a dense vector, such that words with closer meanings are mapped to the nearby points and the similarity between them is computed based on their distance in the embedding space. Traditional word embeddings, despite being good at capturing semantics, have some drawbacks. They treat all words equally as terms and cannot be directly used to represent named entities. Disregarding the named entities while generating a word embeddings creates several challenges for downstream tasks that use them as input.
+A long-standing challenge for research in computer science is the understanding of written text and extraction of useful information from it. These distributed representations or so-called word embeddings, map words of vocabulary to a dense vector, such that words with closer meanings are mapped to the nearby points and the similarity between them is computed based on their distance in the embedding space. Traditional word embeddings, despite being good at capturing semantics, have some drawbacks. They treat all words equally as terms and cannot be directly used to represent named entities. Disregarding the named entities while generating a word embeddings creates several challenges for downstream tasks that use them as input.
 In this work, we address the problems of term-based models by generating embeddings for named entities as well as terms using an annotated corpus using two approaches: 
 
 To naively include entities in our models, we train the well-established word embedding models on a corpus, annotated with named entities. 
-To better capture the entity-entity relations, we take advantage of the graph representation of the corpus, and embed the nodes of co-occurrence graphs extracted from the annotated text. 
+To better capture the entity-entity relations, we take advantage of the graph representation of the corpus and embed the nodes of co-occurrence graphs extracted from the annotated text. 
 To enhance the performance of our models, we try a wide range of word and graph embedding techniques and compare them against word embedding models trained on raw text.
 
 ## Datasets
@@ -24,7 +24,7 @@ The relevant test dataset for the tasks of Word Similarity, Analogy and Clusteri
 ## Pre-trained Models
 The results presented in the paper are the average result between 10 embedding model trained using the same hyperparameters on the test datasets. We provide one pre-trained model per method [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/), for the exact replication of the results in the paper however, all 10 models are required. 
 
-## Dowanload Pre-trained Models with LOAD Network
+## Download Pre-trained Models with LOAD Network
 
 To download the pre-trained models along with the LOAD network you can run the bash script `load_data.sh` in the `resources` folder, or download from the website mentioned above.s
 
@@ -106,7 +106,7 @@ For the training procedure, we consider the case of training the word2vec model 
 - `MODEL_NUMBER`: 1
 - `NUM_EPOCH`: 100
 - `LEARNING_RATE`: 0.0015
-- `PROXIMATY`: log
+- `PROXIMITY`: log
 - `NUM_NEGATIVE_SAMPLES`: 16
 - `WINDOW_SIZE`: 10
 - `MIN_COUNT`: 3
@@ -115,7 +115,7 @@ For the training procedure, we consider the case of training the word2vec model 
 - `LENGTH_WALK`: 100
 
 ### Testing example 
-To test the modesl we use the example from our pre-trained word2vec model. Assuming that the pre-trained models are loacated in the  `resources/pretrained_embeddings/Word2Vec`, and the test data is located in `resources/test_data`, we can change the setting file to test for word similiarity on `wordsimiliarity353` corpus as follows:
+To test the models we use the example from our pre-trained word2vec model. Assuming that the pre-trained models are located in the  `resources/pretrained_embeddings/Word2Vec`, and the test data is located in `resources/test_data`, we can change the setting file to test for word similarity on `wordsimiliarity353` corpus as follows:
 - `MODE`: Test
 - `SAVE_FOLDERPATH`: `resources/pretrained_embeddings/Word2Vec`
 - `EMBEDDING_TYPE`: Word2Vec
