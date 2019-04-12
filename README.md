@@ -97,7 +97,7 @@ For the training procedure, we consider the case of training the word2vec model 
 - `NUM_THREAD`: 5
  
  For training a graph-based model we look the example of DeepWalk as the VERSE model has to be trained based on the description on its own package. For DeepWalk model with 100 random walks of length 4 trained for 100 epochs with the log of the weights used for the transition probabilities, with word2vec parameters same as above, we need to change the settings.ini file as follow: 
-- `MODE`: Tarin
+- `MODE`: Train
 - `SAVE_FOLDERPATH`: The path to a folder to save the current model files (e.g., resources/deepwalk) 
 - `EDGELIST_PATH`: Path to the file for the edge list of a co-occurrence network (e.g., `resources/load_network/edge_list.txt`)
 - `NODELIST_PATH`: Path to the file for the node list of a co-occurrence network (e.g., `resources/load_network/node_list.txt`)
