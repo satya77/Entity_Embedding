@@ -26,7 +26,7 @@ The results presented in the paper are the average result between 10 embedding m
 
 ## Dowanload Pre-trained Models with LOAD Network
 
-To download the pre-trained models along with the LOAD network you can run the bash script `load_data.sh` in the `resources` folder, or download from the website mentioned above.
+To download the pre-trained models along with the LOAD network you can run the bash script `load_data.sh` in the `resources` folder, or download from the website mentioned above.s
 
 ```bash
 cd resources
