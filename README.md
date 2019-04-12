@@ -13,16 +13,27 @@ To enhance the performance of our models, we try a wide range of word and graph 
 
 ### Training corpus 
 For training, we use 209,023 news articles from English-speaking news outlets,
-collected from June to November 2016 by [Spitz and Gertz](https://dbs.ifi.uni-heidelberg.de/files/Team/aspitz/publications/Spitz_Gertz_2018_Entity-centric_Topic_Extraction.pdf). For entity embeddings we annotated the corpus using [ Ambiverse](https://github.com/ambiverse-nlu). Although the full dataset is not available in this repository, we provided a small example corpus in "test_corpus" folder. The `"corpus_raw.txt"` file the first 100 line of our raw corpus, containing the news articles without the annotation. The annotated version can be found under `"corpus_annotated.txt"` in the same folder, where each line is pre-processed and entities are replaced with their unique identifier as described in the paper. 
+collected from June to November 2016 by [Spitz and Gertz](https://dbs.ifi.uni-heidelberg.de/files/Team/aspitz/publications/Spitz_Gertz_2018_Entity-centric_Topic_Extraction.pdf). For entity embeddings we annotated the corpus using [ Ambiverse](https://github.com/ambiverse-nlu). Although the full dataset is not available in this repository, we provided a small example corpus in "test_corpus" folder. The `corpus_raw.txt` file the first 100 line of our raw corpus, containing the news articles without the annotation. The annotated version can be found under `corpus_annotated.txt` in the same folder, where each line is pre-processed and entities are replaced with their unique identifier as described in the paper. 
 
 ### Graph 
-For the graph-based methods the LOAD network was extracted from the same corpus, the edge list can be found [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/). The `"node_list.txt"` file contains the label for each node along with the unique identifier. `"edge_list_raw.txt"` contains the edge list where each node is the unique identifier from the LOAD network. Since embeddings need an index file that maps the words to their row in the embedding matrix, we created a second edge list with the indexes as nodes in `"edge_list.txt"`.
+For the graph-based methods the LOAD network was extracted from the same corpus, the edge list can be found [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/). The `node_list.txt` file contains the label for each node along with the unique identifier. `edge_list_raw.txt` contains the edge list where each node is the unique identifier from the LOAD network. Since embeddings need an index file that maps the words to their row in the embedding matrix, we created a second edge list with the indexes as nodes in `edge_list.txt`. 
 
 ### Test data
 The relevant test dataset for the tasks of Word Similarity, Analogy and Clustering can be found under the "test_data" folder There exist two versions of each dataset, one which is the original version and the second one which was tailored to be used by the models. Specifically, the words that do not exist in our corpus were removed and the unique identifier for each word was added. 
 
 ## Pre-trained Models
 The results presented in the paper are the average result between 10 embedding model trained using the same hyperparameters on the test datasets. We provide one pre-trained model per method [here](https://dbs.ifi.uni-heidelberg.de/resources/entity-embeddings/), for the exact replication of the results in the paper however, all 10 models are required. 
+
+## Dowanload Pre-trained Models with LOAD Network
+
+To download the pre-trained models along with the LOAD network you can run the bash script `load_data.sh` in the `resources` folder, or download from the website mentioned above.
+
+```bash
+cd resources
+chmod +x load_data.sh
+./load_data.sh
+```
+
 
 ## Settings File 
 
