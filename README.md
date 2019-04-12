@@ -26,7 +26,7 @@ The results presented in the paper are the average result between 10 embedding m
 
 ## Download Pre-trained Models with LOAD Network
 
-To download the pre-trained models along with the LOAD network you can run the bash script `load_data.sh` in the `resources` folder, or download from the website mentioned above.s
+To download the pre-trained models along with the LOAD network you can run the bash script `load_data.sh` in the `resources` folder, or download from the website mentioned above.
 
 ```bash
 cd resources
@@ -57,7 +57,7 @@ To train your own models or run test the settings file should be edited. Below t
 - `LEARNING_RATE`: Learning rate
 - `BATCH_SIZE`: Batch size for batch gradient descend
 - `NUM_BATCH`: Number of examples in a batch 
-- `PROXIMATY`: The proximity for the DeepWalk it defines which function of the edge weights to use and can take values "Plain"-> no change to weights, "log"-> log(weight) and "sqrt"-> sqrt(weight)
+- `PROXIMITY`: The proximity for the DeepWalk it defines which function of the edge weights to use and can take values "Plain"-> no change to weights, "log"-> log(weight) and "sqrt"-> sqrt(weight)
 - `NUM_NEGATIVE_SAMPLES`: Number of negative examples to be considered for negative sampling
 - `WINDOW_SIZE`: Window size for the word2vec model 
 - `MAX_WEIGHT_CAP`: Maximum weight cap parameter for the GloVe model 
